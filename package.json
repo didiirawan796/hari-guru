@@ -1,0 +1,28 @@
+{
+  "name": "undian-hari-guru",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace @hari-guru/db && npm run build --workspace @hari-guru/web && npm run build --workspace @hari-guru/ws-server",
+    "typecheck": "npm run build --workspace @hari-guru/db && npm run typecheck --workspaces --if-present",
+    "test": "npm run test:schema --workspace @hari-guru/db",
+    "db:migrate": "npm run migrate --workspace @hari-guru/db",
+    "db:seed": "npm run seed --workspace @hari-guru/db",
+    "predev:web": "npm run build --workspace @hari-guru/db",
+    "dev:web": "npm run dev --workspace @hari-guru/web",
+    "predev:ws": "npm run build --workspace @hari-guru/db",
+    "dev:ws": "npm run dev --workspace @hari-guru/ws-server",
+    "start:web": "npm run start --workspace @hari-guru/web",
+    "start:ws": "npm run start --workspace @hari-guru/ws-server"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "overrides": {
+    "postcss": "8.5.32"
+  }
+}

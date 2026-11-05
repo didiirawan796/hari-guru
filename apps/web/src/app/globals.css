@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --merah: #c8102e;
+  --emas: #d4a017;
+  --krem: #faf6ef;
+  --gelap: #1a1a1a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--krem);
+  color: var(--gelap);
+}
+
+::selection {
+  background: rgba(212, 160, 23, 0.3);
+}
+
+@layer utilities {
+  .bg-pattern-lembut {
+    background-image:
+      radial-gradient(circle at 18% 20%, rgba(212, 160, 23, 0.1) 0 2px, transparent 2px),
+      radial-gradient(circle at 82% 70%, rgba(200, 16, 46, 0.08) 0 2px, transparent 2px);
+    background-size: 34px 34px, 28px 28px;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .tanpa-cetak {
+    display: none !important;
+  }
+
+  .kartu-cetak {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
